@@ -1,0 +1,9 @@
+---                                                                             
+- hosts: packer                                                                 
+  gather_facts: no                                                              
+  roles:                                                                        
+    - common                                                                    
+    - lxde                                                                      
+                                                                                
+  tasks:                                                                        
+  - include: roles/common/tasks/packages.yml 

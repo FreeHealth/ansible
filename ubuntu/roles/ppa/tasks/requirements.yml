@@ -1,0 +1,7 @@
+---
+- name: install package requirement for module apt_repository
+  apt:
+    name: python-apt
+    state: present
+    update_cache: yes
+

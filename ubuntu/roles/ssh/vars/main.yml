@@ -1,0 +1,1 @@
+sshpubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}" 

@@ -1,0 +1,10 @@
+keyboardlayout: fr
+ppa: ppa # ppa = stable, nightly = snapshot
+mysql_packages:                                                              
+    - mariadb-server
+mysql_users:                                                                
+    - name: fhio                                                              
+      host: "localhost"                                                       
+      password: fhio                                                          
+      priv: '*.*:ALL,GRANT'
+mysql_root_password_update: yes

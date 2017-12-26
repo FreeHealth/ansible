@@ -1,0 +1,7 @@
+- name: install lxde packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    install_recommends: no
+    update_cache: yes
+  with_items: ['xserver-xorg', 'lightdm', 'lightdm-gtk-greeter', 'lxde-core', 'lxde-common', 'lxsession', 'lxrandr']

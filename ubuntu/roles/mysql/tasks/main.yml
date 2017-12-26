@@ -1,0 +1,6 @@
+---
+
+- name: install mysql-server with root password = root
+  mysql_packages:
+    - mysql
+    - mysql-server

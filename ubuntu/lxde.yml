@@ -1,0 +1,11 @@
+---
+- hosts: packer
+  gather_facts: no
+  roles:
+    - common
+    - lxde
+
+  tasks:
+  - include: roles/upgrade/tasks/upgrade.yml
+  - include: roles/reboot/tasks/reboot.yml
+  - include: roles/lxde/tasks/install_lxde.yml

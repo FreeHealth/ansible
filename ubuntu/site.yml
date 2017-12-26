@@ -1,0 +1,56 @@
+---
+
+- hosts: all
+  gather_facts: no
+
+  tasks:
+
+  - name: include variables
+    include_vars:
+      dir: 'vars'
+
+  - name: install python 2
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    become: true
+
+  - debug:
+      msg: "before we run our role"
+
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+
+  - include_role:
+      name: gantsign.keyboard
+    vars:
+      keyboard_layout: "{{ keyboardlayout }}"
+
+  - include_role:
+      name: ssh
+
+  - include_role:
+      name: common
+
+  - include_role:
+      name: upgrade
+
+  - include_role:
+      name: lxde
+
+  - include_role:
+      name: reboot
+
+  - include_role:
+      name: ppa
+
+  - include_role:
+      name: geerlingguy.mysql
+    become: true                                                           
+  - name: install freehealth-ehr
+    apt:
+      name: freehealth-ehr
+      update_cache: yes
+
+  - debug:
+      msg: "after we ran our role"

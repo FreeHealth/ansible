@@ -1,0 +1,6 @@
+---
+- name: bare include (free-form)
+  include_vars:
+    dir: 'vars'
+- name: Add ssh user keys
+  authorized_key: user=vagrant key={{ sshpubkey }}

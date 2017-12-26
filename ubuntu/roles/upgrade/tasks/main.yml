@@ -1,0 +1,6 @@
+---
+- name: update and dist upgrade
+  apt:
+    upgrade: dist
+    update_cache: yes
+    dpkg_options: 'force-confnew'
